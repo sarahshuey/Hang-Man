@@ -6,8 +6,9 @@
   </head>
   <body>
     <div class='container'>
-      <form class="word input" action="/" method="post">
-        <input type="text" name="letter">
+      <form class="wordinput" action="/" method="post">
+        <input type="text" maxlength="1" minlength="1" name="letter">
+        <!-- this lets mean you must enter 1 character and no more than 1 -->
         <button type="submit" name="submit">Are you Sure?</button>
       </form>
   </div>
