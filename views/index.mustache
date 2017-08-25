@@ -6,7 +6,18 @@
   </head>
   <body>
     <div class='container'>
-      <form class="wordinput" action="/" method="post">
+      <div class="title">
+        <h3>Hang Man</h3>
+      </div>
+      <div class='wordBlank'>
+        {{#object}}
+        {{.}}
+        {{/object}}
+      </div>
+      <div class='guesses'>
+        <p>Guesses Left:{{guessed}}</p>
+      </div>
+      <form class="wordinput" action="/letterguessed" method="post">
         <input type="text" maxlength="1" minlength="1" name="letter">
         <!-- this lets mean you must enter 1 character and no more than 1 -->
         <button type="submit" name="submit">Are you Sure?</button>

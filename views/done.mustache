@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Hang Man</title>
+  </head>
+  <body>
+    {{#done}}
+    <p> Winner!</p>
+    {{/done}}
+    {{^done}}
+    <p> Loser!</p>
+    {{/done}}
+    <form class="new" action="/newgame" method="post">
+      <input type="submit" name="new" value="New Game">
+    </form>
+  </body>
+</html>
