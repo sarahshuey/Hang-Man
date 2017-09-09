@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Code Man</title>
+</head>
+
+<body>
+  <h1>Code Man</h1>
+  <!-- // display partially guessed word -->
+  <!-- // display dashes that have not been guessed -->
+  {{#roundDetails}}
+    <!-- // make letter visible to user -->
+    <p>{{guessedLetters}}</p>
+    {{#letters}}
+      {{^guessed}}
+      <!-- // on page show number of letters as dashes -->
+      <span>_ </span>
+      {{/guessed}}
+      {{#guessed}}
+        <!-- // let user know if their guess appears in the word - if correct -->
+        <span>{{letter}} </span>
+      {{/guessed}}
+    {{/letters}}
+  {{/roundDetails}}
+  <!-- // make form in mustache file -->
+  <form class="gotgame" action="/handler" method="post">
+    <!-- // let user input guess (string of 1 letter) -->
+    <input type="text" name="guess" value="">
+    <input type="submit" name="enterguess" value="GUESS">
+  </form>
+  {{#errors}}
+    {{msg}}<br>
+  {{/errors}}
+  <!-- // remind user of how many guesses they have left after each round -->
+
+  {{#roundDetails}}
+    <p>remaining guesses: {{numberOfGuesses}}</p>
+    {{#win}}{{win}}{{/win}}
+    {{#correctGuess}}
+      <!-- // tell user it is correct -->
+      <p>great guess! You are correct.</p>
+    {{/correctGuess}}
+    {{^correctGuess}}
+    <p>nope, try again.</p>
+    {{/correctGuess}}
+  {{/roundDetails}}
+</body>
+
+</html>
